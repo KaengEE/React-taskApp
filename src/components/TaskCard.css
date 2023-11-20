@@ -38,10 +38,11 @@
   opacity: 80%;
 }
 
+/* flex */
 .task_card_bottom_line {
   display: flex;
   align-items: center;
-  /* 태그와 아이콘 사이에 스페이스를 넣기 */
+  justify-content: space-between;
 }
 
 .task_delete {
