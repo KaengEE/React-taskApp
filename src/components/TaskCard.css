@@ -1,0 +1,56 @@
+.task_card {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 15px 0;
+}
+
+.task_text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.task_delete {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.task_delete:hover {
+  background-color: #ebebeb;
+}
+
+.delete_icon {
+  width: 20px;
+  opacity: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.task_delete:hover .delete_icon {
+  opacity: 80%;
+}
+
+.task_card_bottom_line {
+  display: flex;
+  align-items: center;
+  /* 태그와 아이콘 사이에 스페이스를 넣기 */
+}
+
+.task_delete {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
