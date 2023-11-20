@@ -23,6 +23,7 @@
 
 .task_input::placeholder {
   color: #686868;
+  font-size: medium;
 }
 
 .task_form_bottom_line {
