@@ -1,3 +1,4 @@
+import Tag from "./Tag";
 import "./TaskForm.css";
 
 export default function TaskForm() {
@@ -12,10 +13,10 @@ export default function TaskForm() {
         <div className="task_form_bottom_line">
           {/* 태그부분 */}
           <div>
-            <button className="tag">HTML</button>
-            <button className="tag">CSS</button>
-            <button className="tag">JavaScript</button>
-            <button className="tag">React</button>
+            <Tag tagName="HTML" />
+            <Tag tagName="CSS" />
+            <Tag tagName="JavaScript" />
+            <Tag tagName="REACT" />
           </div>
           <div>
             {/* 옵션버튼 */}
