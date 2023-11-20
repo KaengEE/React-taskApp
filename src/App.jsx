@@ -1,10 +1,11 @@
 import "./App.css";
+import TaskForm from "./componets/TaskForm";
 
 function App() {
   return (
     <div className="app">
       {/* 헤더 */}
-      <header className="app_header">Header Section</header>
+      <TaskForm />
 
       {/* 메인 */}
       <main className="app_main">
