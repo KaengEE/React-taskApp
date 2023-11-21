@@ -11,16 +11,38 @@ export default function TaskForm() {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
+    tags: [],
   });
-  console.log(taskData.task, taskData.status);
 
-  //함수
+  //클릭함수
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTaskData((prev) => {
       return { ...prev, [name]: value };
     });
   };
+
+  //태그선택함수
+  //선택한 태그를 tags에 입력, 이미 있을 경우 삭제
+  const selectTag = (tag) => {
+    if (taskData.tags.some((item) => item === tag)) {
+      const filterTags = taskData.tags.filter((item) => item !== tag); //제거
+      setTaskData((prev) => {
+        return { ...prev, tags: filterTags }; //삭제하고 남은 tags
+      });
+    } else {
+      setTaskData((prev) => {
+        return { ...prev, tags: [...prev.tags, tag] }; //tag 추가
+      });
+    }
+  };
+
+  //선택되었으면 true
+  const checkTag = (tag) => {
+    return taskData.tags.some((item) => item === tag);
+  };
+
+  console.log(taskData);
 
   return (
     <header className="app_header">
@@ -37,10 +59,26 @@ export default function TaskForm() {
         <div className="task_form_bottom_line">
           {/* 태그부분 */}
           <div>
-            <Tag tagName="HTML" />
-            <Tag tagName="CSS" />
-            <Tag tagName="JavaScript" />
-            <Tag tagName="REACT" />
+            <Tag
+              selectTag={selectTag}
+              selected={checkTag("HTML")}
+              tagName="HTML"
+            />
+            <Tag
+              selectTag={selectTag}
+              tagName="CSS"
+              selected={checkTag("CSS")}
+            />
+            <Tag
+              selectTag={selectTag}
+              tagName="JavaScript"
+              selected={checkTag("JavaScript")}
+            />
+            <Tag
+              selectTag={selectTag}
+              tagName="REACT"
+              selected={checkTag("REACT")}
+            />
           </div>
           <div>
             {/* 옵션버튼 */}
