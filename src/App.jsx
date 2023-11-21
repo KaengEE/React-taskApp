@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./App.css";
 import TaskColumn from "./components/TaskColumn";
@@ -8,14 +8,21 @@ import todoIcon from "./assets/direct-hit.png";
 import doingIcon from "./assets/glowing-star.png";
 import doneIcon from "./assets/check-mark-button.png";
 
+const saveTasks = localStorage.getItem("tasks");
+
 function App() {
-  const [tasks, setTasks] = useState([]); //task가 여러개 들어있는 배열
+  const [tasks, setTasks] = useState(JSON.parse(saveTasks) || []); //task가 여러개 들어있는 배열
 
   //삭제 함수
   const handleDelete = (taskIndex) => {
     const newTasks = tasks.filter((task, index) => index !== taskIndex);
     setTasks(newTasks);
   };
+
+  //로컬에 저장
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks)); //객체를 문자열로 변환
+  }, [tasks]);
 
   return (
     <div className="app">
