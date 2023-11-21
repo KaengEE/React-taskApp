@@ -41,7 +41,7 @@ function App() {
   }, [tasks]);
 
   return (
-    <DndProvider backend={HTML5Backend} options={TouchBackend}>
+    <DndProvider backend={TouchBackend}>
       <div className="app">
         {/* 헤더 */}
         <TaskForm setTasks={setTasks} />
