@@ -54,3 +54,30 @@
   border: none;
   cursor: pointer;
 }
+
+/* @media query for mobile styles */
+@media (max-width: 600px) {
+  .app_header > form {
+    width: 80%; /* Full width on mobile */
+  }
+
+  .task_input {
+    width: 100%; /* Full width on mobile */
+    margin-bottom: 10px; /* Adjust margin for mobile layout */
+  }
+
+  .task_form_bottom_line {
+    flex-direction: row; /* Stack items vertically on mobile */
+    align-items: flex-start; /* Align items to the start on mobile */
+  }
+
+  .task_status {
+    width: 110%; /* Full width on mobile */
+    margin-bottom: 10px; /* Adjust margin for mobile layout */
+  }
+
+  .task_submit {
+    width: 120%; /* Full width on mobile */
+    margin-left: 5; /* Reset margin for mobile layout */
+  }
+}

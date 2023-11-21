@@ -33,3 +33,20 @@
 .footer_text p {
   padding: 5px;
 }
+
+/* 모바일화면 */
+
+@media (max-width: 600px) {
+  .app_main {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .task_column {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .app_main {
+    padding-bottom: 150px;
+  }
+}
