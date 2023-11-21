@@ -1,8 +1,17 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Task 관리앱
 
-Currently, two official plugins are available:
+- 할일입력 후 추가하기
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 할일 삭제 가능
+
+- drag & drop 기능 추가
+
+## 라이브러리 활용
+
+<a href="https://react-dnd.github.io/react-dnd/about">React-dnd</a> : 드래그앤드랍 라이브러리
+
+## 배포링크
+
+<a href="">Task APP</a>
