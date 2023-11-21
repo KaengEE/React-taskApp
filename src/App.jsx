@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 //dnd
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import HTML5toTouch from "react-dnd-multi-backend/dist/esm/HTML5toTouch";
 import "./App.css";
 import TaskColumn from "./components/TaskColumn";
 import TaskForm from "./components/TaskForm";
@@ -40,7 +39,7 @@ function App() {
   }, [tasks]);
 
   return (
-    <DndProvider backend={HTML5Backend} options={HTML5toTouch}>
+    <DndProvider backend={HTML5Backend}>
       <div className="app">
         {/* 헤더 */}
         <TaskForm setTasks={setTasks} />
