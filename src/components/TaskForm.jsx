@@ -2,7 +2,7 @@ import { useState } from "react";
 import Tag from "./Tag";
 import "./TaskForm.css";
 
-export default function TaskForm() {
+export default function TaskForm({ setTasks }) {
   //각각의 스테이터스 관리
   // const [task, setTask] = useState("");
   // const [status, setStatus] = useState("todo");
@@ -42,11 +42,18 @@ export default function TaskForm() {
     return taskData.tags.some((item) => item === tag);
   };
 
-  console.log(taskData);
+  //submit함수
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(taskData); //콘솔
+    setTasks((prev) => {
+      return [...prev, taskData]; //할일 1개
+    });
+  };
 
   return (
     <header className="app_header">
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* 할일입력창 */}
         <input
           name="task"

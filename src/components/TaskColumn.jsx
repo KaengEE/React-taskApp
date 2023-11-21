@@ -4,7 +4,7 @@ import "./TaskColumn.css";
 //rfc 단축키
 import React from "react";
 
-export default function TaskColumn({ title, icon }) {
+export default function TaskColumn({ title, icon, tasks, status }) {
   return (
     <section className="task_column">
       <h2 className="task_column_heading">
@@ -12,7 +12,15 @@ export default function TaskColumn({ title, icon }) {
         {title}
       </h2>
 
-      <TaskCard />
+      {/* status에 따라 분류 */}
+      {tasks.length > 0
+        ? tasks.map(
+            (task, index) =>
+              task.status === status && (
+                <TaskCard key={index} title={task.task} tags={task.tags} />
+              )
+          )
+        : null}
     </section>
   );
 }
