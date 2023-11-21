@@ -4,7 +4,7 @@ import deleteIcon from "../assets/delete.png";
 
 import React from "react";
 
-export default function TaskCard({ title, tags }) {
+export default function TaskCard({ title, tags, index, handleDelete }) {
   return (
     <article className="task_card">
       <p className="task_text">{title}</p>
@@ -16,7 +16,12 @@ export default function TaskCard({ title, tags }) {
           ))}
         </div>
         <div className="task_delete">
-          <img className="delete_icon" src={deleteIcon} alt="" />
+          <img
+            onClick={() => handleDelete(index)}
+            className="delete_icon"
+            src={deleteIcon}
+            alt=""
+          />
         </div>
       </div>
     </article>

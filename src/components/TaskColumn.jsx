@@ -4,7 +4,13 @@ import "./TaskColumn.css";
 //rfc 단축키
 import React from "react";
 
-export default function TaskColumn({ title, icon, tasks, status }) {
+export default function TaskColumn({
+  title,
+  icon,
+  tasks,
+  status,
+  handleDelete,
+}) {
   return (
     <section className="task_column">
       <h2 className="task_column_heading">
@@ -17,7 +23,13 @@ export default function TaskColumn({ title, icon, tasks, status }) {
         ? tasks.map(
             (task, index) =>
               task.status === status && (
-                <TaskCard key={index} title={task.task} tags={task.tags} />
+                <TaskCard
+                  index={index}
+                  handleDelete={handleDelete}
+                  key={index}
+                  title={task.task}
+                  tags={task.tags}
+                />
               )
           )
         : null}
