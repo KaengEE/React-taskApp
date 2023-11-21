@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 //dnd
 import { DndProvider } from "react-dnd";
 import { TouchBackend } from "react-dnd-touch-backend";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 import "./App.css";
 import TaskColumn from "./components/TaskColumn";
@@ -39,8 +40,16 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks)); //객체를 문자열로 변환
   }, [tasks]);
 
+  // App.jsx 파일 내에서 사용되는 isTouchDevice 함수 추가
+  function isTouchDevice() {
+    return "ontouchstart" in window || navigator.maxTouchPoints;
+  }
+
+  //pc일때는 HTML5Backend 모바일일때는 TouchBackend
+  const backend = isTouchDevice() ? TouchBackend : HTML5Backend;
+
   return (
-    <DndProvider backend={TouchBackend}>
+    <DndProvider backend={backend}>
       <div className="app_title">
         <h2>Task 관리APP</h2>
       </div>
