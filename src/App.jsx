@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-
+//dnd
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import "./App.css";
 import TaskColumn from "./components/TaskColumn";
 import TaskForm from "./components/TaskForm";
@@ -12,6 +14,19 @@ const saveTasks = localStorage.getItem("tasks");
 
 function App() {
   const [tasks, setTasks] = useState(JSON.parse(saveTasks) || []); //task가 여러개 들어있는 배열
+  const [droppedItem, setDroppedItem] = useState(null); //dnd
+
+  //드래그앤드랍
+  const handleDrop = (cardIndex, sourceStatus, targetStatus) => {
+    // 현재 상태 복사
+    const updatedTasks = [...tasks];
+    // 해당 카드의 상태 변경
+    updatedTasks[cardIndex].status = targetStatus;
+    //로컬 스토리지에 저장하도록 했습니다.
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    // 상태 업데이트
+    setTasks(updatedTasks);
+  };
 
   //삭제 함수
   const handleDelete = (taskIndex) => {
@@ -25,34 +40,39 @@ function App() {
   }, [tasks]);
 
   return (
-    <div className="app">
-      {/* 헤더 */}
-      <TaskForm setTasks={setTasks} />
-      {/* 메인 */}
-      <main className="app_main">
-        <TaskColumn
-          title="할 일"
-          icon={todoIcon}
-          tasks={tasks}
-          status="todo"
-          handleDelete={handleDelete}
-        />
-        <TaskColumn
-          title="진행중"
-          icon={doingIcon}
-          tasks={tasks}
-          status="doing"
-          handleDelete={handleDelete}
-        />
-        <TaskColumn
-          title="완 료"
-          icon={doneIcon}
-          tasks={tasks}
-          status="done"
-          handleDelete={handleDelete}
-        />
-      </main>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <div className="app">
+        {/* 헤더 */}
+        <TaskForm setTasks={setTasks} />
+        {/* 메인 */}
+        <main className="app_main">
+          <TaskColumn
+            title="할 일"
+            icon={todoIcon}
+            tasks={tasks}
+            status="todo"
+            handleDelete={handleDelete}
+            onDrop={handleDrop} // onDrop 함수 전달
+          />
+          <TaskColumn
+            title="진행중"
+            icon={doingIcon}
+            tasks={tasks}
+            status="doing"
+            handleDelete={handleDelete}
+            onDrop={handleDrop} // onDrop 함수 전달
+          />
+          <TaskColumn
+            title="완 료"
+            icon={doneIcon}
+            tasks={tasks}
+            status="done"
+            handleDelete={handleDelete}
+            onDrop={handleDrop} // onDrop 함수 전달
+          />
+        </main>
+      </div>
+    </DndProvider>
   );
 }
 
