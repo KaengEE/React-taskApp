@@ -2,6 +2,13 @@
   display: grid;
   grid-template-rows: 150px auto;
 }
+.app_title {
+  background-color: lavenderblush;
+  text-align: center;
+  justify-content: center;
+  height: 50px;
+  padding-top: 10px;
+}
 
 .app_main {
   display: flex;

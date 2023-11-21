@@ -41,6 +41,9 @@ function App() {
 
   return (
     <DndProvider backend={TouchBackend}>
+      <div className="app_title">
+        <h2>Task 관리APP</h2>
+      </div>
       <div className="app">
         {/* 헤더 */}
         <TaskForm setTasks={setTasks} />
