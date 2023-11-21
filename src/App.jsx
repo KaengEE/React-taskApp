@@ -14,7 +14,6 @@ const saveTasks = localStorage.getItem("tasks");
 
 function App() {
   const [tasks, setTasks] = useState(JSON.parse(saveTasks) || []); //task가 여러개 들어있는 배열
-  const [droppedItem, setDroppedItem] = useState(null); //dnd
 
   //드래그앤드랍
   const handleDrop = (cardIndex, sourceStatus, targetStatus) => {
@@ -22,7 +21,7 @@ function App() {
     const updatedTasks = [...tasks];
     // 해당 카드의 상태 변경
     updatedTasks[cardIndex].status = targetStatus;
-    //로컬 스토리지에 저장하도록 했습니다.
+    //로컬 스토리지에 저장
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     // 상태 업데이트
     setTasks(updatedTasks);
@@ -71,6 +70,20 @@ function App() {
             onDrop={handleDrop} // onDrop 함수 전달
           />
         </main>
+        {/* 푸터 */}
+        <footer className="app_footer">
+          <div className="footer_text">
+            <div className="row">
+              <p>React로 만든 Task App</p>
+              <p>Copyright(C) 2023.KaengEE.All rights reserved.</p>
+              <p>
+                <a href="https://github.com/KaengEE/React-taskApp">
+                  KaengEE GitHub
+                </a>
+              </p>
+            </div>
+          </div>
+        </footer>
       </div>
     </DndProvider>
   );
