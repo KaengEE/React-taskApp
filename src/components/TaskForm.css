@@ -55,29 +55,29 @@
   cursor: pointer;
 }
 
-/* @media query for mobile styles */
+/* 모바일화면 */
 @media (max-width: 600px) {
   .app_header > form {
-    width: 80%; /* Full width on mobile */
+    width: 80%;
   }
 
   .task_input {
-    width: 100%; /* Full width on mobile */
-    margin-bottom: 10px; /* Adjust margin for mobile layout */
+    width: 100%;
+    margin-bottom: 10px;
   }
 
   .task_form_bottom_line {
-    flex-direction: row; /* Stack items vertically on mobile */
-    align-items: flex-start; /* Align items to the start on mobile */
+    flex-direction: row;
+    align-items: flex-start;
   }
 
   .task_status {
-    width: 110%; /* Full width on mobile */
-    margin-bottom: 10px; /* Adjust margin for mobile layout */
+    width: 110%;
+    margin-bottom: 10px;
   }
 
   .task_submit {
-    width: 120%; /* Full width on mobile */
-    margin-left: 5; /* Reset margin for mobile layout */
+    width: 120%;
+    margin-left: 5;
   }
 }

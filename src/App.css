@@ -34,8 +34,7 @@
   padding: 5px;
 }
 
-/* 모바일화면 */
-
+/* 모바일화면 아이폰14pro, 갤럭시 s20울트라 기준*/
 @media (max-width: 600px) {
   .app_main {
     flex-direction: column;
