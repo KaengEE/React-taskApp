@@ -49,6 +49,12 @@ export default function TaskForm({ setTasks }) {
     setTasks((prev) => {
       return [...prev, taskData]; //할일 1개
     });
+    //처음처럼 taskData 리셋
+    setTaskData({
+      task: "",
+      status: "todo",
+      tags: [],
+    });
   };
 
   return (
