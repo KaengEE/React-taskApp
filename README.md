@@ -2,7 +2,7 @@
 
 Task 관리앱
 
-- 할일입력 후 추가하기
+- 할일 추가
 
 - 할일 삭제 가능
 
@@ -14,4 +14,4 @@ Task 관리앱
 
 ## 배포링크
 
-<a href="">Task APP</a>
+<a href="https://react-taskapp-kaengee.netlify.app/">Task APP</a>
