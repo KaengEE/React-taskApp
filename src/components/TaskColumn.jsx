@@ -6,6 +6,7 @@ import { useDrop } from "react-dnd";
 //rfc 단축키
 import React from "react";
 
+//dnd
 const TaskColumn = ({ title, icon, tasks, status, handleDelete, onDrop }) => {
   const [{ isOver }, drop] = useDrop({
     accept: "TASK_CARD",
